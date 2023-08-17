@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="cal-body">
+
+        <div class="brand">
+            <h2>Chan</h2>
+        </div>
+
+
+        <div class="result">
+            <input type="text" id="input">
+            <input type="text" id="result">
+        </div>
+        <div class="container">
+            <div class="numpad-container">
+                <div class="num-pad">
+                    <button class="pad-oper l" id="delete">C</button>
+                    <button class="pad-oper l" id="percent">%</button>
+                    <button class="pad-oper l" id="clear">CE</button>
+                    <button class="pad-oper l" id="divide">/</button>
+                </div>
+                <div class="num-pad">
+                    <button class="pad l">1</button>
+                    <button class="pad l">2</button>
+                    <button class="pad l">3</button>
+                    <button class="pad-oper l" id="multiply">x</button>
+                </div>
+                <div class="num-pad">
+                    <button class="pad l">4</button>
+                    <button class="pad l">5</button>
+                    <button class="pad l">6</button>
+                    <button class="pad-oper l" id="minus">-</button>
+                </div>
+                <div class="num-pad">
+                    <button class="pad l">7</button>
+                    <button class="pad l">8</button>
+                    <button class="pad l">9</button>
+                    <button class="pad-oper l" id="add">+</button>
+                </div>
+                <div class="num-pad">
+                    <button class="pad l">0</button>
+                    <button class="pad l">.</button>
+                    <button class="pad-oper" id="equal">=</button>
+                    <button class="pad-oper l" id="sign">+/-</button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script>
+        var numbers = document.getElementsByClassName(" l ")
+
+        var input = document.getElementById("input");
+        var result = document.getElementById("result");
+        var clear = document.getElementById("clear");
+        var del = document.getElementById("delete");
+        var equal = document.getElementById("equal");
+
+        for (var i = 0; i < numbers.length; i++) {
+            numbers[i].addEventListener("click", AppendNumber)
+        }
+
+        clear.addEventListener("click", Clear)
+        equal.addEventListener("click", Calculate)
+        del.addEventListener("click", Delete)
+
+        function AppendNumber() {
+            input.value = input.value + this.innerText
+        }
+
+        function Clear() {
+            input.value = ""
+        }
+
+        function Calculate() {
+            var str = input.value
+            str = str.replace(/X/gi, "*")
+            try {
+                var answer = eval(str)
+                result.innerText = answer
+                input.value = answer
+            } catch (err) {
+                result.innerText = "Syntax Error"
+            }
+        }
+
+        function Delete() {
+            input.value = "";
+        }
+    </script>
+
+
+
+</body>
+
+</html>
