@@ -118,3 +118,61 @@ button:hover {
     border: 0;
     background: linear-gradient(to right, rgb(207, 206, 206), white);
 }
+
+/* Responsive adjustments */
+@media (max-width: 300px) {
+    .cal-body {
+        width: 70%;
+        height: 500px;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: none;
+    }
+
+    .container {
+        width: 90%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .result {
+        width: 100%;
+        height: auto;
+        font-size: 18px;
+    }
+
+    input {
+        position: relative;
+        font-size: 18px;
+        height: auto;
+        width: 80%;
+    }
+
+    .numpad-container {
+        position: relative;
+        top: 100px;
+        width: 90%;
+        padding: 10px;
+    }
+
+    .num-pad {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 5px 5px 5px 10px;
+    }
+
+    button {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    button:focus,
+    button:hover {
+        font-size: 20px;
+    }
+
+    .pad-oper {
+        font-size: 18px;
+    }
+}
